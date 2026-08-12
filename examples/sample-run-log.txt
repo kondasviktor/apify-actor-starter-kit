@@ -1,0 +1,8 @@
+2026-08-12T10:00:01.120Z INFO  Charging event actor-start
+2026-08-12T10:00:01.890Z INFO  Catalog page 1: 20 cards {"url":"https://books.toscrape.com/"}
+2026-08-12T10:00:02.410Z INFO  Pushed detail 1/5 {"title":"A Light in the Attic","upc":"a897fe39b1053632","price":"£51.77"}
+2026-08-12T10:00:02.780Z INFO  Pushed detail 2/5 {"title":"Tipping the Velvet","upc":"90fa6121ae9aa101","price":"£53.74"}
+2026-08-12T10:00:03.050Z INFO  Pushed detail 3/5 {"title":"Soumission","upc":"6957f44c3847a760","price":"£50.10"}
+2026-08-12T10:00:03.310Z INFO  Pushed detail 4/5 {"title":"Sharp Objects","upc":"e00eb4fd7b871a48","price":"£47.82"}
+2026-08-12T10:00:03.580Z INFO  Pushed detail 5/5 {"title":"Sapiens: A Brief History of Humankind","upc":"4165289e44d2f5b9","price":"£54.23"}
+2026-08-12T10:00:03.600Z INFO  Run complete {"pushed":5,"pagesSeen":1,"itemCharges":5,"maxItems":5}

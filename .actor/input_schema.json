@@ -1,0 +1,67 @@
+{
+  "title": "Books to Scrape demo input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Start URLs",
+      "type": "array",
+      "description": "Catalog pages to start from. Prefill uses the public Books to Scrape sandbox.",
+      "editor": "requestListSources",
+      "prefill": [
+        { "url": "https://books.toscrape.com/" }
+      ]
+    },
+    "maxItems": {
+      "title": "Max items",
+      "type": "integer",
+      "description": "Maximum dataset rows / item-scraped PPE charges. Prefill: 10.",
+      "minimum": 1,
+      "maximum": 10000,
+      "default": 10,
+      "prefill": 10
+    },
+    "maxPages": {
+      "title": "Max catalog pages",
+      "type": "integer",
+      "description": "Cap on catalog pagination depth.",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 3,
+      "prefill": 2
+    },
+    "maxConcurrency": {
+      "title": "Max concurrency",
+      "type": "integer",
+      "description": "Crawler concurrency. Prefill: 2.",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 2,
+      "prefill": 2
+    },
+    "followPagination": {
+      "title": "Follow pagination",
+      "type": "boolean",
+      "description": "Enqueue Next links on catalog pages.",
+      "default": true,
+      "prefill": true
+    },
+    "scrapeDetails": {
+      "title": "Scrape detail pages",
+      "type": "boolean",
+      "description": "When true, open each book page for UPC, category, and description. When false, push listing cards only.",
+      "default": true,
+      "prefill": true
+    },
+    "proxyConfiguration": {
+      "title": "Proxy configuration",
+      "type": "object",
+      "description": "Usually off for books.toscrape.com. Enable if you adapt this template to a blocked target.",
+      "editor": "proxy",
+      "prefill": {
+        "useApifyProxy": false
+      }
+    }
+  },
+  "required": ["startUrls"]
+}

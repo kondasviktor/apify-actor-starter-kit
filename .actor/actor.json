@@ -1,0 +1,16 @@
+{
+  "actorSpecification": 1,
+  "name": "starter-listing-scraper",
+  "title": "Starter listing scraper (Books to Scrape demo)",
+  "description": "Complete Cheerio Actor template from The Vibe Coder's Playbook. Scrapes the public books.toscrape.com sandbox with PPE charge calls, pagination, detail pages, and unit-tested parsers. Replace parsers for your niche — do not publish this demo to Store as a product.",
+  "version": "0.3",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "playbook-starter-actor"
+  },
+  "input": "./input_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "dockerfile": "../Dockerfile"
+}

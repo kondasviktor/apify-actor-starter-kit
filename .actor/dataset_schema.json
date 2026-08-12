@@ -1,0 +1,93 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": ["string", "null"],
+        "title": "Title",
+        "description": "Book title",
+        "nullable": true
+      },
+      "price": {
+        "type": ["string", "null"],
+        "title": "Price",
+        "description": "Listed price string (e.g. £51.77)",
+        "nullable": true
+      },
+      "availability": {
+        "type": ["string", "null"],
+        "title": "Availability",
+        "description": "Stock text from the page",
+        "nullable": true
+      },
+      "rating": {
+        "type": ["string", "null"],
+        "title": "Rating",
+        "description": "Star rating label (One–Five)",
+        "nullable": true
+      },
+      "category": {
+        "type": ["string", "null"],
+        "title": "Category",
+        "description": "Breadcrumb category",
+        "nullable": true
+      },
+      "upc": {
+        "type": ["string", "null"],
+        "title": "UPC",
+        "description": "Product UPC from detail table",
+        "nullable": true
+      },
+      "description": {
+        "type": ["string", "null"],
+        "title": "Description",
+        "description": "Product description paragraph",
+        "nullable": true
+      },
+      "productUrl": {
+        "type": ["string", "null"],
+        "title": "Product URL",
+        "description": "Canonical product page URL",
+        "format": "uri",
+        "nullable": true
+      },
+      "sourceUrl": {
+        "type": ["string", "null"],
+        "title": "Source URL",
+        "description": "Request URL that produced this row",
+        "format": "uri",
+        "nullable": true
+      }
+    },
+    "required": [],
+    "additionalProperties": true
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": [
+          "title",
+          "price",
+          "rating",
+          "category",
+          "upc",
+          "productUrl"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "title": { "label": "Title" },
+          "price": { "label": "Price" },
+          "rating": { "label": "Rating" },
+          "category": { "label": "Category" },
+          "upc": { "label": "UPC" },
+          "productUrl": { "label": "URL", "format": "link" }
+        }
+      }
+    }
+  }
+}

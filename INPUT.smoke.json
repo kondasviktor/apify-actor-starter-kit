@@ -1,0 +1,9 @@
+{
+  "startUrls": [{ "url": "https://books.toscrape.com/" }],
+  "maxItems": 5,
+  "maxPages": 1,
+  "maxConcurrency": 2,
+  "followPagination": false,
+  "scrapeDetails": true,
+  "proxyConfiguration": { "useApifyProxy": false }
+}

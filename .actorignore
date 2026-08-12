@@ -1,0 +1,8 @@
+# Keep the Docker image small — do not upload local Apify storage
+apify_storage
+storage
+.git
+.github
+*.md
+!README.md
+INPUT.smoke.json
