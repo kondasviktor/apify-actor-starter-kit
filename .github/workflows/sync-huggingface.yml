@@ -1,0 +1,24 @@
+name: Sync to Hugging Face
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "hf-space/**"
+      - ".github/workflows/sync-huggingface.yml"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: huggingface/hub-sync@v0.2.0
+        with:
+          github_repo_id: ${ github.repository }
+          huggingface_repo_id: kondasviktor/apify-actor-starter-kit
+          hf_token: ${ secrets.HF_TOKEN }
+          repo_type: space
+          space_sdk: static
+          subdirectory: hf-space

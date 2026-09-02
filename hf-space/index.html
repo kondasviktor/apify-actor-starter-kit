@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apify Actor Starter Kit — Vibe Coder's Life</title>
+  <meta name="description" content="Open TypeScript + Crawlee Cheerio teaching Actor. Books to Scrape demo with PPE charge calls and fixture tests.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <p class="kicker">Vibe Coder's Life</p>
+    <h1>Apify Actor Starter Kit</h1>
+    <p class="slogan">Scaffold a Cheerio Apify Actor in minutes — then replace the parser for your niche.</p>
+    <p class="lead">Scrapes the public <a href="https://books.toscrape.com/">Books to Scrape</a> sandbox, pushes structured rows, and demonstrates <strong>pay-per-event</strong> charge calls with a max-charge guard. <strong>Do not publish this demo as a Store product.</strong></p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/kondasviktor/apify-actor-starter-kit">Clone on GitHub</a>
+      <a class="btn" href="https://github.com/kondasviktor/awesome-apify-actor-ideas">Actor ideas</a>
+      <a class="btn" href="https://vibecoderslife.com/post/how-to-create-apify-actors?utm_source=huggingface&utm_medium=space&utm_campaign=apify-starter-kit">Builder story</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why this exists</h2>
+    <div class="cards">
+      <article class="card"><h3>Pure parsers</h3><p>HTML parsers with fixture tests — swap <code>parser.ts</code> for your niche.</p></article>
+      <article class="card"><h3>Console-ready</h3><p>Input + dataset schemas for Apify Console.</p></article>
+      <article class="card"><h3>PPE wiring</h3><p><code>actor-start</code> / <code>item-scraped</code> with a max-charge guard.</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Quick start</h2>
+    <pre>git clone https://github.com/kondasviktor/apify-actor-starter-kit.git
+cd apify-actor-starter-kit
+npm ci
+npm test
+npm run build
+# optional: apify login && apify run</pre>
+    <p class="note">Deploy privately: <code>npm run build</code> → <code>apify login</code> → <code>apify push</code> (separate commands). Slug from <code>.actor/actor.json</code>.</p>
+  </section>
+
+  <section>
+    <h2>What it does</h2>
+    <p class="note">Catalog URLs → optional pagination → detail pages for UPC, category, description. Charges once at start and per dataset row (capped by <code>maxItems</code>).</p>
+  </section>
+
+  <aside class="cta">
+    <h2>Want the full Playbook?</h2>
+    <p class="note">This kit is free under MIT. <strong>The Vibe Coder's Playbook</strong> (€37 one-time) adds <strong>80+ AI coding prompts</strong>, PPE margin worksheets, the scored <strong>100 Actor ideas</strong>, and a start-to-finish chapter mirroring this demo.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://vibecoderslife.com/apify-actor-playbook-toolkit?utm_source=huggingface&utm_medium=space&utm_campaign=apify-starter-kit">Get the Playbook</a>
+      <a class="btn" href="https://github.com/kondasviktor/awesome-apify-actor-ideas">Awesome Apify Actor Ideas</a>
+      <a class="btn" href="https://vibecoderslife.com/?utm_source=huggingface&utm_medium=space&utm_campaign=apify-starter-kit#subscribe-email">Subscribe to VCL</a>
+    </div>
+  </aside>
+
+  <footer>
+    <p>MIT · Solo-maintained by <a href="https://vibecoderslife.com/?utm_source=huggingface&utm_medium=space&utm_campaign=apify-starter-kit#subscribe-email">Vibe Coder's Life</a>. Apify® is a trademark of Apify Technologies s.r.o. Not affiliated with Apify.</p>
+  </footer>
+</body>
+</html>
