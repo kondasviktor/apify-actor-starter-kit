@@ -16,23 +16,22 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - name: Upload Static Space
+      - name: Verify Hugging Face token
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_REPO_ID: kondasviktor/apify-actor-starter-kit
         run: |
           set -euo pipefail
           if [[ -z "${HF_TOKEN}" ]]; then
-            echo "::error::HF_TOKEN repository secret is missing (Settings → Secrets and variables → Actions → Repository secrets)."
+            echo "::error::HF_TOKEN is missing. Add it under Settings → Secrets and variables → Actions → Repository secrets (not Environments)."
             exit 1
           fi
-          if [[ ${#HF_TOKEN} -lt 20 ]]; then
-            echo "::error::HF_TOKEN looks too short — check for copy/paste issues."
-            exit 1
-          fi
-          uvx hf repos create "${HF_REPO_ID}" --type space --space-sdk static --exist-ok
-          cd hf-space
-          uvx hf upload "${HF_REPO_ID}" . \
-            --type space \
-            --exclude=".git*" \
-            --commit-message "Sync from GitHub"
+          uvx hf auth whoami
+
+      - uses: huggingface/hub-sync@v0.2.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: kondasviktor/apify-actor-starter-kit
+          hf_token: ${{ secrets.HF_TOKEN }}
+          repo_type: space
+          space_sdk: static
+          subdirectory: hf-space
