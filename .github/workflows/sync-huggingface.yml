@@ -14,11 +14,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: huggingface/hub-sync@v0.2.0
-        with:
-          github_repo_id: ${{ github.repository }}
-          huggingface_repo_id: kondasviktor/apify-actor-starter-kit
-          hf_token: ${{ secrets.HF_TOKEN }}
-          repo_type: space
-          space_sdk: static
-          subdirectory: hf-space
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Upload Static Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: kondasviktor/apify-actor-starter-kit
+        run: |
+          set -euo pipefail
+          if [[ -z "${HF_TOKEN}" ]]; then
+            echo "::error::HF_TOKEN repository secret is missing"
+            exit 1
+          fi
+          uvx hf auth whoami
+          uvx hf repos create "${HF_REPO_ID}" --type space --space-sdk static --exist-ok
+          uvx hf upload "${HF_REPO_ID}" hf-space \
+            --type space \
+            --exclude=".git*" \
+            --delete="*" \
+            --commit-message "Sync from GitHub"
