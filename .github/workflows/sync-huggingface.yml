@@ -23,13 +23,16 @@ jobs:
         run: |
           set -euo pipefail
           if [[ -z "${HF_TOKEN}" ]]; then
-            echo "::error::HF_TOKEN repository secret is missing"
+            echo "::error::HF_TOKEN repository secret is missing (Settings → Secrets and variables → Actions → Repository secrets)."
             exit 1
           fi
-          uvx hf auth whoami
+          if [[ ${#HF_TOKEN} -lt 20 ]]; then
+            echo "::error::HF_TOKEN looks too short — check for copy/paste issues."
+            exit 1
+          fi
           uvx hf repos create "${HF_REPO_ID}" --type space --space-sdk static --exist-ok
-          uvx hf upload "${HF_REPO_ID}" hf-space \
+          cd hf-space
+          uvx hf upload "${HF_REPO_ID}" . \
             --type space \
             --exclude=".git*" \
-            --delete="*" \
             --commit-message "Sync from GitHub"
