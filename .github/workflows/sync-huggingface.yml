@@ -27,7 +27,8 @@ jobs:
           pip install -q huggingface_hub
           python3 <<'PY'
           import os, sys
-          from huggingface_hub import HfApi, HfHubHTTPError
+          from huggingface_hub import HfApi
+          from huggingface_hub.errors import HfHubHTTPError
 
           token = os.environ["HF_TOKEN"].strip()
           repo = os.environ["HF_REPO_ID"]
