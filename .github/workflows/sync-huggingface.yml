@@ -14,25 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Push hf-space to Hugging Face
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_REPO_ID: kondasviktor/apify-actor-starter-kit
-        run: |
-          set -euo pipefail
-          if [[ -z "${HF_TOKEN}" ]]; then
-            echo "::error::HF_TOKEN is missing (Repository secrets, not Environments)."
-            exit 1
-          fi
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git clone "https://kondasviktor:${HF_TOKEN}@huggingface.co/spaces/${HF_REPO_ID}" hf-remote
-          rsync -av --delete --exclude .git hf-space/ hf-remote/
-          cd hf-remote
-          git add -A
-          if git diff --staged --quiet; then
-            echo "No changes to push."
-            exit 0
-          fi
-          git commit -m "Sync from GitHub"
-          git push
+      - uses: huggingface/hub-sync@v0.2.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: kondasviktor/apify-actor-starter-kit
+          hf_token: ${{ secrets.HF_TOKEN }}
+          repo_type: space
+          space_sdk: static
+          subdirectory: hf-space

@@ -30,3 +30,4 @@ This Space mirrors the public GitHub repo. Clone GitHub to run tests and deploy.
 - [Awesome Apify Actor Ideas](https://github.com/kondasviktor/awesome-apify-actor-ideas)
 - [Builder story on VCL](https://vibecoderslife.com/post/how-to-create-apify-actors?utm_source=huggingface&utm_medium=space&utm_campaign=apify-starter-kit)
 - [Get the Playbook](https://vibecoderslife.com/apify-actor-playbook-toolkit?utm_source=huggingface&utm_medium=space&utm_campaign=apify-starter-kit)
+
