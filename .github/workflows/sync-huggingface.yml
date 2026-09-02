@@ -14,11 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: astral-sh/setup-uv@v5
-        with:
-          enable-cache: false
-
-      - name: Upload Static Space
+      - name: Push hf-space to Hugging Face
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           HF_REPO_ID: kondasviktor/apify-actor-starter-kit
@@ -28,10 +24,15 @@ jobs:
             echo "::error::HF_TOKEN is missing (Repository secrets, not Environments)."
             exit 1
           fi
-          uvx hf auth whoami
-          uvx hf repos create "${HF_REPO_ID}" --type space --space-sdk static --exist-ok
-          cd hf-space
-          if ! uvx hf upload "${HF_REPO_ID}" . --type space --exclude=".git*" --commit-message "Sync from GitHub"; then
-            echo "::error::hf upload failed — ensure the HF token has WRITE access to ${HF_REPO_ID} (fine-grained tokens must list this Space explicitly)."
-            exit 1
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git clone "https://user:${HF_TOKEN}@huggingface.co/spaces/${HF_REPO_ID}" hf-remote
+          rsync -av --delete --exclude .git hf-space/ hf-remote/
+          cd hf-remote
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to push."
+            exit 0
           fi
+          git commit -m "Sync from GitHub"
+          git push
