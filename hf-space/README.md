@@ -6,7 +6,7 @@ colorTo: orange
 sdk: static
 pinned: false
 license: mit
-short_description: TypeScript + Crawlee Cheerio teaching Actor — Books to Scrape demo.
+short_description: Crawlee Cheerio teaching Actor — Books to Scrape demo.
 tags:
   - apify
   - crawlee
