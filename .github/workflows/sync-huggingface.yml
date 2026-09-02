@@ -14,11 +14,45 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: huggingface/hub-sync@v0.2.0
+      - uses: actions/setup-python@v5
         with:
-          github_repo_id: ${{ github.repository }}
-          huggingface_repo_id: kondasviktor/apify-actor-starter-kit
-          hf_token: ${{ secrets.HF_TOKEN }}
-          repo_type: space
-          space_sdk: static
-          subdirectory: hf-space
+          python-version: "3.11"
+
+      - name: Upload hf-space to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: kondasviktor/apify-actor-starter-kit
+        run: |
+          set -euo pipefail
+          pip install -q huggingface_hub
+          python3 <<'PY'
+          import os, sys
+          from huggingface_hub import HfApi, HfHubHTTPError
+
+          token = os.environ["HF_TOKEN"].strip()
+          repo = os.environ["HF_REPO_ID"]
+          if len(token) < 20:
+              print("::error::HF_TOKEN is missing or too short. Add it under Settings → Secrets → Actions → Repository secrets (name must be HF_TOKEN).")
+              sys.exit(1)
+
+          api = HfApi(token=token)
+          try:
+              api.whoami()
+          except Exception as exc:
+              print(f"::error::HF token auth failed: {exc}")
+              sys.exit(1)
+
+          try:
+              api.create_repo(repo, repo_type="space", space_sdk="static", exist_ok=True)
+              api.upload_folder(
+                  folder_path="hf-space",
+                  repo_id=repo,
+                  repo_type="space",
+                  commit_message="Sync from GitHub",
+              )
+          except HfHubHTTPError as exc:
+              body = exc.response.text[:800] if exc.response is not None else str(exc)
+              print(f"::error::Hugging Face upload failed ({exc}). Response: {body}")
+              sys.exit(1)
+          print(f"Uploaded to https://huggingface.co/spaces/{repo}")
+          PY
