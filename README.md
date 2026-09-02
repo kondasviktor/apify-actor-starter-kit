@@ -10,6 +10,8 @@ It scrapes the public [Books to Scrape](https://books.toscrape.com/) sandbox (ca
 
 Looking for niches? See [awesome-apify-actor-ideas](https://github.com/kondasviktor/awesome-apify-actor-ideas).
 
+**Builder story:** [How I create Apify Actors people actually pay to use](https://vibecoderslife.com/post/how-to-create-apify-actors?utm_source=github&utm_medium=readme&utm_campaign=apify-starter-kit) — eight live Store listings, the Graveyard, and the Playbook that grew out of the packaging scars.
+
 ---
 
 ## Why this exists
@@ -21,7 +23,7 @@ Blank Actor repos waste a weekend on packaging. This kit already has:
 - PPE `actor-start` / `item-scraped` with a max-charge guard  
 - Dockerfile ordered for TypeScript cloud builds  
 
-The full Playbook adds prompts, checklists, PPE worksheets, and the scored 100-idea list.
+The full Playbook adds **80+ prompts**, checklists, PPE worksheets, and the scored 100-idea list.
 
 ---
 
@@ -113,14 +115,12 @@ Optional signup: [apify.com](https://apify.com/?fpr=tmk8u8)
 
 ## Want the full Playbook?
 
-This kit is free under MIT. **The Vibe Coder's Playbook** adds:
+This kit is free under MIT. **[The Vibe Coder's Playbook: Build Apify Actors people will actually pay to use](https://vibecoderslife.com/apify-actor-playbook-toolkit?utm_source=github&utm_medium=readme&utm_campaign=apify-starter-kit)** (€37 one-time) adds:
 
-- 90 AI coding prompts + launch checklists  
+- **80+ AI coding prompts** + launch checklists  
 - PPE margin worksheets and Store packaging guidance  
 - The scored **100 Actor ideas** spreadsheet  
 - Start-to-finish chapter mirroring this demo  
-
-→ [Vibe Coder's Life](https://vibecoderslife.com/?utm_source=github&utm_medium=readme&utm_campaign=apify-starter-kit) (Playbook sales page goes live with the product launch — until then, subscribe on the homepage.)
 
 More niches: [awesome-apify-actor-ideas](https://github.com/kondasviktor/awesome-apify-actor-ideas).
 

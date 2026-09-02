@@ -28,4 +28,5 @@ npm run build
 ## Related
 
 - Ideas teaser: https://github.com/kondasviktor/awesome-apify-actor-ideas
-- Site: https://vibecoderslife.com/
+- Playbook toolkit: https://vibecoderslife.com/apify-actor-playbook-toolkit?utm_source=github&utm_medium=readme&utm_campaign=apify-starter-kit
+- Builder story: https://vibecoderslife.com/post/how-to-create-apify-actors

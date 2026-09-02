@@ -2,7 +2,7 @@
   "name": "starter-listing-scraper",
   "version": "0.1.0",
   "type": "module",
-  "description": "Complete Crawlee Cheerio Apify Actor demo (books.toscrape.com) from The Vibe Coder's Playbook: Build Profitable Apify Actors with AI Toolkit",
+  "description": "Complete Crawlee Cheerio Apify Actor demo (books.toscrape.com) from The Vibe Coder's Playbook: Build Apify Actors people will actually pay to use",
   "scripts": {
     "start": "npm run start:prod",
     "start:prod": "node dist/main.js",
