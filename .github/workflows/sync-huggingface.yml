@@ -16,9 +16,9 @@ jobs:
 
       - uses: huggingface/hub-sync@v0.2.0
         with:
-          github_repo_id: ${ github.repository }
+          github_repo_id: ${{ github.repository }}
           huggingface_repo_id: kondasviktor/apify-actor-starter-kit
-          hf_token: ${ secrets.HF_TOKEN }
+          hf_token: ${{ secrets.HF_TOKEN }}
           repo_type: space
           space_sdk: static
           subdirectory: hf-space
