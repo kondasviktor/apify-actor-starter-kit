@@ -26,7 +26,7 @@ jobs:
           fi
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git clone "https://user:${HF_TOKEN}@huggingface.co/spaces/${HF_REPO_ID}" hf-remote
+          git clone "https://kondasviktor:${HF_TOKEN}@huggingface.co/spaces/${HF_REPO_ID}" hf-remote
           rsync -av --delete --exclude .git hf-space/ hf-remote/
           cd hf-remote
           git add -A
