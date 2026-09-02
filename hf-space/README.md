@@ -2,7 +2,7 @@
 title: Apify Actor Starter Kit
 emoji: 📦
 colorFrom: yellow
-colorTo: orange
+colorTo: yellow
 sdk: static
 pinned: false
 license: mit
